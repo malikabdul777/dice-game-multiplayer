@@ -5,8 +5,8 @@ const player1El = document.querySelector('.player--1');
 let score0El = document.getElementById('score--0');
 let score1El = document.getElementById('score--1');
 const diceEl = document.querySelector('.dice');
-const nameP1 = document.querySelector('.name--0');
-const nameP2 = document.querySelector('.name--1');
+const nameP1 = document.querySelector('#name--0');
+const nameP2 = document.querySelector('#name--1');
 
 const btnRollEl = document.querySelector('.btn--roll');
 const btnHoldEl = document.querySelector('.btn--hold');
@@ -14,6 +14,7 @@ const btnNewEl = document.querySelector('.btn--new');
 
 let current0El = document.getElementById('current--0');
 let current1El = document.getElementById('current--1');
+
 
 let varScoreP1 = 0;
 let varScoreP2 = 0;
@@ -23,6 +24,8 @@ score1El.textContent = 0;
 function hideCon() {
   let arr = [diceEl, btnRollEl, btnHoldEl];
   for (let i = 0; i <= arr.length - 1; i++) arr[i].classList.add('hidden');
+  
+  
 }
 
 function checkForWinner() {
@@ -30,10 +33,17 @@ function checkForWinner() {
     player0El.classList.add('player--winner');
     hideCon();
     nameP1.textContent = 'Player 1 Won the Match!🎉';
+    let arr = [nameP1, score0El];
+    for (let i = 0; i <= arr.length - 1; i++) arr[i].style.color = 'white';
+    
   } else if (Number(score1El.textContent) >= 100) {
     player1El.classList.add('player--winner');
     hideCon();
     nameP2.textContent = 'Player 2 Won the Match!🎉';
+    let arr = [nameP2, score1El];
+    for (let i = 0; i <= arr.length - 1; i++) arr[i].style.color = 'white';
+    // nameP2.style.color = 'white';
+    // score1El.style.color = 'white';
   }
 }
 
